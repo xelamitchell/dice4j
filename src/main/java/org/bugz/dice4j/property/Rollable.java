@@ -1,21 +1,21 @@
 package org.bugz.dice4j.property;
 
+import java.util.List;
+
 /**
  * The Interface which defines the appropriate actions for a random number
  * generator which is rolled in order to generate the random value.
  *
- * @version 0.0.1 26.09.2007
  * @author bugz
  */
-// TODO Add Generics rather than return Object
-public interface Rollable extends Randomizable {
+public interface Rollable<T> {
     
     /**
      * Represents a single basic roll of the random generator.
      *
      * @return a randomly selected Object.
      */
-    public Object roll();
+    public T roll();
     
     /**
      * Represents a number of rolls of the random generator.
@@ -24,7 +24,7 @@ public interface Rollable extends Randomizable {
      * be rolled.
      * @return a randomly selected Object.
      */
-    public Object roll(Integer n);
+    public List<T> roll(Integer n);
     
     /**
      * Represents a number of rolls of the random generator modified by a value.

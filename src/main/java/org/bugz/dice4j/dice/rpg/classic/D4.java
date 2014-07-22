@@ -1,14 +1,12 @@
 package org.bugz.dice4j.dice.rpg.classic;
 
-import org.bugz.dice4j.dice.AbstractClassicDie;
-
 /**
  * The <code>D4</code> Class represents a four-sided <code>Die</code>.
  *
  * @version 0.0.2 28.03.2007
  * @author bugz
  */
-public final class D4 extends AbstractClassicDie {
+public final class D4 extends AbstractRpgDie {
     
     /**
      * <code>D4</code> Class Constructor.<br>

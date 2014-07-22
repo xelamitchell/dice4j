@@ -11,6 +11,13 @@ import org.bugz.dice4j.property.Rollable;
  * 
  * @author bugz
  */
+/*
+ * (non-javadoc)
+ * 
+ * TODO EroticDie could actually be composed of two separate dice: BodyDie and
+ * ActionDie. These two extend Die (each with it's own enumeration as Type).
+ * These two dice would be rolled by a dice pool.
+ */
 public class EroticDie implements Rollable {
 
     /** The {@link D6} Die which the {@code EroticDie} forwards method calls to. */

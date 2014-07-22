@@ -1,14 +1,12 @@
 package org.bugz.dice4j.dice.rpg.classic;
 
-import org.bugz.dice4j.dice.AbstractClassicDie;
-
 /**
  * The <code>D12</code> Class represents a 12-sided <code>Die</code>.
  *
  * @version 0.0.2 29.03.2007
  * @author bugz
  */
-public final class D12 extends AbstractClassicDie {
+public final class D12 extends AbstractRpgDie {
     
     /**
      * <code>D12</code> Class Constructor.<br>

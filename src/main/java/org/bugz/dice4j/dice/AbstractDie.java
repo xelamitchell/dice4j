@@ -1,96 +1,86 @@
 package org.bugz.dice4j.dice;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 import java.util.Random;
-import org.bugz.dice4j.property.Rollable;
 
 /**
- * This is a base Abstract Class which can be used for most <code>Rollable</code>
- * dice. The Class contains the java.util.Random object used to perform the
- * rolls and may be used to create a <code>Die</code> Class with however many
- * sides are needed.<br>
+ * Base class for all common dice. These dice are thread safe.
  *
- * see <a href="http://en.wikipedia.org/wiki/Dice">Wikipedia: Dice</a>
- * see <a href="http://en.wikipedia.org/wiki/Dice_notation">
- * Wikipedia: Dice Notation</a>
- *
- * @version 0.0.3 01.05.2007
  * @author bugz
+ * 
+ * @see <a href="http://en.wikipedia.org/wiki/Dice">Wikipedia: Dice</a>
+ * @see <a href="http://en.wikipedia.org/wiki/Dice_notation">Wikipedia: Dice Notation</a>
  */
-public abstract class AbstractDie implements Rollable {
+public abstract class AbstractDie implements Die<Integer> {
     
-    /** The java.util.Random object used to roll a pseudo-random value. */
-    private Random random;
-    /** The number of sides the <code>Die</code> possesses. */
-    private Integer sides;
+    private final Random random;
+    private final Integer sides;
     
     /**
-     * <code>AbstractDie</code> Class Constructor.
-     * 
-     * @param sides the number of sides the <code>Die</code> is to have.
+     * @param sides the number of sides the {@code Die} is to have.
      */
-    public AbstractDie(Integer sides) {
+    protected AbstractDie(Integer sides) {
         random = new Random();
         this.sides = sides;
     }
     
     /**
-     * Informs the number of sides this <code>Die</code> has.
+     * The number of sides this {@code Die} has.
      * 
-     * @return the number of sides of the <code>Die</code>
+     * @return the number of sides of the {@code Die}.
      */
-    public int getSides() {
+    @Override
+    public Integer getSides() {
         return sides;
     }
     
     /**
-     * Rolls a pseudo-random number of the <code>Die</code>-type.
+     * Rolls a pseudo-random number of the {@code Die}-type.
      * 
      * @return an integer representing the pseudo-random value rolled.
      */
+    @Override
     public Integer roll() {
         return random.nextInt(getSides()) + 1;
     }
     
     /**
-     * Rolls a pseudo-random number of the <code>Die</code>-type n number of
-     * times. This represents the notation:<br>
-     * <center>AdX</center><br>
-     * Where n is the number of times the <code>Die</code>-type dX must be
+     * Rolls a pseudo-random number of the {@code Die}-type n number of
+     * times. This represents the notation:<br/>
+     * <center>AdX</center><br/>
+     * Where n is the number of times the {@code Die}-type dX must be
      * rolled.
      * 
-     * @param n the number of times the <code>Die</code> is to be rolled.
-     * @return a Collection of the pseudo-random values rolled.
+     * @param n the number of times the {@code Die} is to be rolled.
+     * @return a list of the pseudo-random values rolled.
      */
-    public Collection<Integer> roll(Integer n) {
+    @Override
+    public List<Integer> roll(Integer n) {
         
-        Collection<Integer> c = new ArrayList<Integer>();
+        List<Integer> results = new ArrayList<>();
         
         for(int i = 0; i < n; i++) {
-            c.add(roll());
+            results.add(roll());
         }
         
-        return c;
+        return results;
     }
     
     /**
-     * Receives a <code>String</code> which represents a specific kind of RPG
-     * die roll: <i>"Die rolls are described with expressions such as '3d4+3',
+     * Receives a {@code String} which represents a specific kind of RPG die
+     * roll: <i>"Die rolls are described with expressions such as '3d4+3',
      * which means 'roll three four-sided dice and add 3' (resulting in a
      * number between 6 and 15)."</i> - SRD:Basics (pg. 1).<br>
      * This method parses the representation into actual numbers and performs
      * the roll specified.<br>
-     * The format of the <code>String</code> is:<br>
+     * The format of the {@code String} is:<br>
      * <center>AdX[+/-]B</center><br>
      * 
-     * @param roll the <code>String</code> specifying which roll must be made.
+     * @param roll the {@code String} specifying which roll must be made.
      * @return the pseudo-random value rolled.
-     * @throws <code>InvalidDieExceptioncode> if the die passed in the argument
-     * is not the <code>Die</code> used, or if the String is incorrectly
-     * formatted.
      */
-    // TODO Encapsulate logic into a StringDie.
+    // TODO Encapsulate logic into a String parser/formatter.
     /*
     public int roll(String roll) throws InvalidDieException {
         
@@ -143,10 +133,10 @@ public abstract class AbstractDie implements Rollable {
     
     /**
      * Returns a String representing the dX notation where X is the number of
-     * sides the <code>Die</code> has.
+     * sides the {@code Die} has.
      *
      * @return a String containing a representation of the number of sides the
-     * <code>Die</code> has with a lowercase 'd' appended before it.
+     * {@code Die} has with a lowercase 'd' appended before it.
      */
     @Override
     public String toString() {

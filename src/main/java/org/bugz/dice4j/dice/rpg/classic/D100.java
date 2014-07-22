@@ -1,14 +1,12 @@
 package org.bugz.dice4j.dice.rpg.classic;
 
-import org.bugz.dice4j.dice.AbstractClassicDie;
-
 /**
  * The {@code D100} Class represents a 100-sided {@link Die}.
  *
  * @version 0.0.2 29.03.2007
  * @author bugz
  */
-public final class D100 extends AbstractClassicDie {
+public final class D100 extends AbstractRpgDie {
     
     /**
      * <code>D100</code> Class Constructor.<br>

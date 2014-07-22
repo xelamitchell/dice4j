@@ -45,7 +45,7 @@ public class Storyteller implements Rollable {
     /** <code>Storyteller</code> Class Constructor. */
     public Storyteller() {
         
-        d10 = D10.getInstance();
+        d10 = D10.getDie();
         rules = new RuleManager();
         
         // Mimics the 3rd Edition ruleset by setting the Default Difficulty to

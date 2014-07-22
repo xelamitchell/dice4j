@@ -2,8 +2,8 @@ package org.bugz.dice4j.dice.cleromancy.magicball;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
-import org.bugz.dice4j.dice.Die;
 import org.bugz.dice4j.dice.rpg.classic.D20;
+import org.bugz.dice4j.property.Shakeable;
 import org.bugz.dice4j.util.ResourceLoader;
 
 /**
@@ -12,15 +12,17 @@ import org.bugz.dice4j.util.ResourceLoader;
  * it is a hollow, plastic sphere resembling an oversized, black and white
  * 8-ball."</i> - Wikipedia.org
  *
- * see <a href="http://en.wikipedia.org/wiki/">Wikipedia: Magic 8-Ball</a>
- *
- * @version 0.0.1 20.07.2007
  * @author bugz
+ * 
+ * @see <a href="http://en.wikipedia.org/wiki/">Wikipedia: Magic 8-Ball</a>
  */
 /*
  * TODO Loads the answers from an internationalisation .properties file.
  */
-public class Magic8Ball implements Die {
+public class Magic8Ball implements Shakeable<String> {
+    
+    private D20 d20 = D20.getInstance();
+    private ResourceBundle resource;
     
     /**
      * <code>Magic8Ball</code> Class Constructor.
@@ -45,7 +47,7 @@ public class Magic8Ball implements Die {
      * @return a String containing one of the possible yes-no answers.
      */
     public String ask(String question) {
-        return turn();
+        return shake();
     }
     
     /**
@@ -55,17 +57,8 @@ public class Magic8Ball implements Die {
      *
      * @return a String containing one of the possible yes-no answers.
      */
-    private String turn() {
+    private String shake() {
         return null;
     }
-    
-    /**
-     * The Magic 8-Ball toy contained 20 yes-no anwers, each was a face in the
-     * 20-sided <code>Die</code> which floated in the liquid within the sphere.<br>
-     * This is the <code>D20 Die</code> to with method calls are forwarded to.
-     */
-    private D20 d20 = D20.getInstance();
-    /** The possible yes-no answers. */
-    private ResourceBundle resource;
-    
+
 }

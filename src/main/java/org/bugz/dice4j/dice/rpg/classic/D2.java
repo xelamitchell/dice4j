@@ -1,7 +1,5 @@
 package org.bugz.dice4j.dice.rpg.classic;
 
-import org.bugz.dice4j.dice.AbstractClassicDie;
-
 /**
  * The <code>D2</code> Class represents a two-sided <code>Die</code> (a coin,
  * for example).
@@ -9,7 +7,7 @@ import org.bugz.dice4j.dice.AbstractClassicDie;
  * @version 0.0.2 19.02.2007
  * @author bugz
  */
-public final class D2 extends AbstractClassicDie {
+public final class D2 extends AbstractRpgDie {
         
     /** Maintains the reference to an instantiation of a <code>D2 Die</code>. */
     private static D2 instance = null;

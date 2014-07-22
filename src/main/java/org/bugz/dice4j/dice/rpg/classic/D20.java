@@ -1,14 +1,12 @@
 package org.bugz.dice4j.dice.rpg.classic;
 
-import org.bugz.dice4j.dice.AbstractClassicDie;
-
 /**
  * The <code>D20</code> Class represents a 20-sided <code>Die</code>.
  *
  * @version 0.0.2 29.03.2007
  * @author bugz
  */
-public final class D20 extends AbstractClassicDie {
+public final class D20 extends AbstractRpgDie {
     
     /**
      * <code>D20</code> Class Constructor.<br>
