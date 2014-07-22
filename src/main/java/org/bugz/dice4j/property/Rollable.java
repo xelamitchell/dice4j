@@ -5,6 +5,8 @@ import java.util.List;
 /**
  * The Interface which defines the appropriate actions for a random number
  * generator which is rolled in order to generate the random value.
+ * 
+ * @param <T>
  *
  * @author bugz
  */

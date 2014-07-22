@@ -1,42 +1,29 @@
 package org.bugz.dice4j.dice.rpg.classic;
 
+import org.bugz.dice4j.dice.Die;
+import org.bugz.dice4j.dice.DieFactory;
+import org.bugz.dice4j.dice.GenericDie;
+
 /**
- * The {@code D100} Class represents a 100-sided {@link Die}.
+ * A 100-sided {@link Die}.
  *
- * @version 0.0.2 29.03.2007
  * @author bugz
  */
-public final class D100 extends AbstractRpgDie {
+public final class D100 extends GenericDie {
     
-    /**
-     * <code>D100</code> Class Constructor.<br>
-     * The Constructor's Private permission ensures that the <code>D100</code>
-     * Class cannot be instantiated other than through the getInstance()
-     * method.
-     *
-     * @see #getInstance()
-     */
-    private D100() {
-        super(100);
+    private static final D100 DIE = new D100(DieFactory.getDie(100));
+    
+    private D100(Die die) {
+        super(die.getSides());
     }
-    
+
     /**
-     * Guarantees that there is only ever a single <code>D100</code> object
-     * instantiated in the program.
+     * Creates a 100-sided {@code Die}.
      *
-     * @return either a new instance of <code>D100</code> or the current
-     * reference.
+     * @return a 100-sided {@code Die}.
      */
-    public static D100 getInstance() {
-        
-        if(instance == null) {
-            instance = new D100();
-        }
-        
-        return instance;
+    public static D100 getDie() {
+        return DIE;
     }
-    
-    /** Maintains the reference to an instantiation of a <code>D100 Die</code>. */
-    private static D100 instance = null;
     
 }
