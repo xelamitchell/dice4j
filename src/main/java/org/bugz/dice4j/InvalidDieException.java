@@ -1,9 +1,8 @@
-package org.bugz.dice4j.util;
+package org.bugz.dice4j;
 
 /**
- * Alerts that an Invalid <code>Die</code>-type was used.
+ * An invalid {@link Die} operation occured.
  *
- * @version 0.0.1 05.09.2006
  * @author bugz
  */
 public class InvalidDieException extends Exception {

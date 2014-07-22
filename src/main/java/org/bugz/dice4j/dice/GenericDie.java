@@ -5,8 +5,7 @@ package org.bugz.dice4j.dice;
  * 
  * @author bugz
  */
-// TODO all Dx dice should extend GenericDie
-class GenericDie extends AbstractDie {
+public class GenericDie extends AbstractDie {
     
     /**
      * @param sides the number of sides the {@code Die} is to have.

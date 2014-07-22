@@ -60,17 +60,4 @@ public class D10Test {
         });
     }
     
-    @Test
-    public void shouldRollASingleValueModifiedByAPositiveAmount() {
-        
-        final Integer ROLLS = 1;
-        final Integer MODIFIER = 1;
-        
-        List<Integer> results = d10.roll(ROLLS, MODIFIER);
-        
-        assertThat(results)
-                .hasSize(ROLLS);
-        
-    }
-    
 }

@@ -2,13 +2,14 @@ package org.bugz.dice4j.dice.rpg.classic;
 
 import org.bugz.dice4j.dice.Die;
 import org.bugz.dice4j.dice.DieFactory;
+import org.bugz.dice4j.dice.GenericDie;
 
 /**
  * A ten-sided {@link Die}.
  *
  * @author bugz
  */
-public final class D10 extends AbstractRpgDie {
+public final class D10 extends GenericDie {
 
     private static final D10 DIE = new D10(DieFactory.getDie(10));
     
